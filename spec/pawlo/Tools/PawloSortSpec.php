@@ -17,6 +17,6 @@ class PawloSortSpec extends ObjectBehavior
     }
       function it_should_sort_by_length()
     {
-        $this->setStr('kotek ali')->sort()->shouldReturn('kotek -5 ali -3');
+        $this->setStr('lubie lubie placki')->sort()->shouldReturn('placki - 6 lubie - 5 ');
     }
 }

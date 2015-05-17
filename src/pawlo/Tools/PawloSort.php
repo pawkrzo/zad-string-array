@@ -20,45 +20,74 @@ class PawloSort
     
     public function sort()
     {
-        $dlugosc=strlen($this->str);
+        $string = ($this->str);
+        $dlugosc=strlen($string);                
         $i=0;
-        $pom;
+        $pom='';
         $aTab=array();
         
         for ($k=0;$k<$dlugosc;$k++)
         {
-            if ($str[k]!= ' ')
+         
+            if ($string[$k]== ' ')
             {
-                $pom+=$str[k];
+                $aTab[$i]=$pom;
+                $pom='';
+                $i++;
             }
-            else if ($str[k]== ' ')
+            else if ($k+1==$dlugosc)
             {
-                $aTab[]=$pom;
-                $pom=' ';
+                $pom.=$string[$k];
+                $aTab[$i]=$pom;
+                $i++;
             }
-            
+            else
+                $pom.=$string[$k];
         }
         
-        $i=count($aTab);
-        for($j=0;$j<$i;$j++)
+        
+       
+         $g=0;$k=0;
+         for($i=0;$i<count($aTab);$i++)
         {
-             for($k=0;$k<$i-1;$k++)
-             {
-                  if(strlen($aTab[k])>(strlen($aTab[k+1])))
-                  {
-                $pom=$aTab[k];
-                $aTab[k]=$aTab[k+1];
-                $aTab[k+1]=$pom;
-                 }
-             }
-        
-        }
-        $pom='';
-          for($j=0;$j<$i;$j++)
+         $pom=$aTab[$i];
+         for($j=0;$j<=$i;$j++)
           {
-              $pom+=$aTab[j];
-              $pom+=' -'.count($aTab[j]);
-          }
-          return $pom;
-    }
+             if($pom==$aTab[$j] && $j!=$i)
+             {
+                $g++;
+             }
+           }
+          if($g==0)
+          {
+              $str[$k]=$pom;
+              $k++;
+           }
+            $g=0;
+        }
+       
+    // bombelkowe sortowanie
+     for($i=0;$i<count($str);$i++)
+    {
+         for($j=0;$j<count($str)-$i-1;$j++)
+         {
+             if(strlen($str[$j])<strlen($str[$j+1]))
+             {
+               $pom=$str[$j];
+               $str[$j]=$str[$j+1];
+               $str[$j+1]=$pom;
+             }
+         }         
+     }
+        $p='';
+          for($j=0;$j<count($str);$j++)
+          {
+           $p.=$str[$j].' - '.strlen($str[$j]).' ';       
+          } 
+    
+       return $p;
+       
+    } 
 }
+    
+
