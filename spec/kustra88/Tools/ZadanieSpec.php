@@ -11,4 +11,12 @@ class ZadanieSpec extends ObjectBehavior
     {
         $this->shouldHaveType('kustra88\Tools\Zadanie');
     }
+    function it_should_have_setter_and_getter()
+    {
+        $this->setStr('piotrek piotrek kustra piotrek')->getStr()->shouldReturn('piotrek piotrek kustra piotrek');
+    }
+    function it_should_generate_wynik()
+    {
+        $this->setStr('piotrek piotrek kustra piotrek')->wynik()->shouldReturn('piotrek - 3; kustra - 1; ');
+    }
 }
