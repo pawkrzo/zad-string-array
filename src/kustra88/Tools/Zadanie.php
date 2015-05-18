@@ -16,19 +16,17 @@ class Zadanie
     }
     public function wynik()
     {
-    	$slowa = explode(" ", $this->str);
+        $slowa = explode(" ", $this->str);
         $tab = array_combine($slowa, array_fill(0, count($slowa), 0));
-
         $wynik = '';
-
         foreach($slowa as $slowo) 
         {
-        	$tab[$slowo]++;
-		}
-		foreach($tab as $slowo => $licznik) 
-		{
-			$wynik .= "$slowo - $licznik; ";
-		}
-		return $wynik;
+            $tab[$slowo]++;
+        }
+        foreach($tab as $slowo => $licznik) 
+        {
+            $wynik .= "$slowo - $licznik; ";
+        }
+        return $wynik;
     }
 }
