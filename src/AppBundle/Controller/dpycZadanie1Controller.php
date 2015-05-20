@@ -13,7 +13,7 @@ class dpycZadanie1Controller extends Controller
      */
     public function showFormAction()
     {
-        $zadanie = new Zadanie();
+        $zadanie = new Zadanie1();
         $form = $this->createCreateForm($zadanie);
         return $this->render(
             'AppBundle:dpycZadanie1:form.html.twig',
