@@ -11,4 +11,12 @@ class ZadanieSpec extends ObjectBehavior
     {
         $this->shouldHaveType('pawkrzo\Tools\Zadanie');
     }
+    function it_should_have_setter_and_getter()
+    {
+        $this->setStr('zdam zdam sesje zdam')->getStr()->shouldReturn('zdam zdam sesje zdam');
+    }
+    function it_should_generate_wynik()
+    {
+        $this->setStr('zdam zdam sesje zdam')->wynik()->shouldReturn('zdam - 3; sesje - 1; ');
+    }
 }
